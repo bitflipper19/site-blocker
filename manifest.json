@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Site Blocker",
+  "version": "1.0",
+  "description": "Blocks Reddit, Facebook, chatGPT and Instagram using DNR.",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": [
+    "*://*.reddit.com/*",
+    "*://*.facebook.com/*",
+    "*://*.instagram.com/*",
+    "*://*.chatgpt.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  },
+  "action": {
+    "default_popup": "block.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["block.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
